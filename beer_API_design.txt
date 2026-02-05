@@ -1,0 +1,6 @@
+/beers,	GET, retrieves all beers
+/beers/{id}, GET, retrieves specific beer
+/beers, POST, add a beer entity
+/beers/{id}, PUT, updates a whole specific beer entity
+/beers/{id}, PATCH, replaces parts of a specific beer entity
+/beers/{id}, DELETE, removes a beer entity 
