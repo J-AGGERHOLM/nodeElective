@@ -1,0 +1,12 @@
+<!-- Cross Site Scripting -->
+<body>
+  <h2>Cross-site Scripting</h2>
+
+  <div id="container"></div>
+
+  <script>
+    const containerDiv = document.getElementById("container");
+
+    containerDiv.innerHTML = `<img src='x' onerror="alert('XSS')"">`;
+  </script>
+</body>

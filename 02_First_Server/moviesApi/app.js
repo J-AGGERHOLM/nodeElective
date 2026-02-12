@@ -23,11 +23,12 @@ const findById = (id) => {
 };
 
 app.get("/movies", (request, response) => {
-  response.send({ data: movies });
+  response.send({ data: movies }); //data is a generic key we send to get back, movies
 });
 
 app.get("/movies/:id", (request, response) => {
   response.send({ data: findById(request.params.id) });
 });
 
+//run server with nodemon <FILE_NAME>
 app.listen(8080);

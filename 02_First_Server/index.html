@@ -1,0 +1,16 @@
+<body>
+  <h1>Frontpage</h1>
+
+  <span id="warning"></span>
+
+  <script>
+    //assignment: create a fetch to /snowstorms and console.log the warning
+
+    fetch("/snowstorms")
+      .then((response) => response.json())
+      .then((result) => {
+        const snowStormWarningSpan = document.getElementById("warning");
+        snowStormWarningSpan.textContent = result.data;
+      });
+  </script>
+</body>
