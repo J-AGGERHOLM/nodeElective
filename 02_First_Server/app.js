@@ -53,15 +53,26 @@ app.post("/energydrinks", (req, res) => {
   res.send(req.body);
 });
 
-console.log(__dirname)
+console.log(__dirname);
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get('/xss', (req, res) => {
-      res.sendFile(__dirname + "/xss.html");
+app.get("/xss", (req, res) => {
+  res.sendFile(__dirname + "/xss.html");
+});
 
-})
+app.get("/proxy", (req, res) => {
+  //assignment:
+  //Create a proxy to https://www.google.com/
+  //you have all the knowledge you need to solve this task already
+
+  fetch(`https://www.google.com/`)
+    .then((response) => response.text())
+    .then((result) => {
+      res.send(result);
+    });
+});
 
 //telling app to listen on port 8080
 //8080 is the comcat port
