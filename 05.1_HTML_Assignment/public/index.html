@@ -5,16 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index page</title>
     <style>
-      .sun {
+      body {
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        position: relative;
+        width: min(90vw, 90vh);
+        aspect-ratio: 1 / 1;
+      }
+
+      .timer {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 15;
+        font-size: clamp(3rem, 22vw, 10rem);
+        color: aliceblue;
+        filter: drop-shadow(5px 5px 10px #075f858c);
+      }
+      .date {
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        transform: translateX(-50%);
+        z-index: 15;
+        color: aliceblue;
+        font-size: clamp(0.5rem, 25vw, 2rem);
+        pointer-events: none;
+        filter: drop-shadow(5px 5px 5px #075f858c);
+      }
+
+      .background {
+        z-index: 1;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        filter: drop-shadow(10px 10px 10px #075f858c);
+      }
+      .ground {
+        z-index: 10;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      .heavenly-bodies {
+        z-index: 5;
+        position: absolute;
+        transform: rotate(0deg);
+        transform-origin: center;
+        top: 35%;
+        left: 5%;
+        width: 90%;
+        height: 25%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
       }
     </style>
   </head>
   <body>
-    <span>Hello to my website</span>
+    <div class="container">
+      <span class="date" id="date"> date</span>
+      <span class="timer" id="timer">12:00</span>
+      <img
+        title="background"
+        class="background"
+        id="background"
+        src="./images/BG.svg"
+      />
+      <img title="ground" class="ground" src="./images/GROUND.svg" />
+      <div class="heavenly-bodies" id="heavenly-bodies">
+        <img title="moon" class="moon" id="moon" src="./images/MOON.svg" />
+        <img title="sun" class="sun" id="sun" src="./images/SUN.svg" />
+      </div>
+    </div>
 
-    <img title="background" src="./images/BG.svg" />
-    <img title="ground" src="./images/GROUND.svg" />
-    <img title="moon" src="./images/MOON.svg" />
-    <img title="sun" src="./images/SUN.svg" />
+    <script>
+      const moon = document.getElementById("moon");
+      const sun = document.getElementById("sun");
+      const heavenlyBodies = document.getElementById("heavenly-bodies");
+      const background = document.getElementById("background");
+      const timer = document.getElementById("timer");
+      const date = document.getElementById("date");
+
+      const update = () => {
+        const now = new Date();
+
+        timer.innerText = now.toLocaleTimeString().slice(0, 5);
+        date.innerText = `${now.getDate()}/${now.getMonth() + 1}`;
+
+        const secondsSinceMidnight =
+          now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+
+        const rotation = (secondsSinceMidnight / 86400) * 360;
+
+        background.style.transform = `rotate(160deg) rotate(${rotation}deg)`;
+        heavenlyBodies.style.transform = `rotate(90deg) rotate(${rotation}deg)`;
+        moon.style.transform = `rotate(-125deg) rotate(${rotation * -1}deg)`;
+      };
+      update();
+      setInterval(update, 1000);
+    </script>
   </body>
 </html>
