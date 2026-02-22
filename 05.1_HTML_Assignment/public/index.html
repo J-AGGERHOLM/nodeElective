@@ -107,6 +107,9 @@
 
         const rotation = (secondsSinceMidnight / 86400) * 360;
 
+        // The rotaters
+        // the first rotate is lines up the rotations correctly, 
+        // the second is what actually makes it rotate
         background.style.transform = `rotate(160deg) rotate(${rotation}deg)`;
         heavenlyBodies.style.transform = `rotate(90deg) rotate(${rotation}deg)`;
         moon.style.transform = `rotate(-125deg) rotate(${rotation * -1}deg)`;
