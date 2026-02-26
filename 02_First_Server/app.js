@@ -20,6 +20,12 @@ app.get("/snowstorms", (request, response) => {
   response.send({ data: "WARNING: SNOWSTROM IS COMING" });
 });
 
+
+app.get("/forecast", (req,res) => {
+  res.redirect("/snowstorms");
+})
+
+
 // how can we send data in a GET request
 
 // path variable

@@ -3,6 +3,8 @@ import express from "express";
 
 const app = express();
 
+import path from "path";
+
 //const cookiesUtil = require("./util/cookiesUtil");
 //console.log(cookiesUtil.getCookie());
 
@@ -11,12 +13,18 @@ console.log(esModuleCookieFactory());
 
 app.use(express.static("public"));
 
+console.log(path.resolve("public/redirection/redirection.html"));
+
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/frontpage/frontPage.html");
+  res.sendFile(path.resolve("public/frontpage/frontPage.html"));
 });
 
 app.get("/cookieFactory", (req, res) => {
-  res.sendFile(__dirname + "/public/cookiefactory/cookiefactory.html");
+  res.sendFile(path.resolve("public/cookiefactory/cookiefactory.html"));
+});
+
+app.get("/redirection", (req, res) => {
+  res.sendFile(path.resolve("public/redirection/redirection.html"));
 });
 
 app.listen(8080, () => {

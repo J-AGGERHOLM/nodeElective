@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>redirection</title>
+</head>
+<body>
+    <h1>Sad to see you go</h1>
+
+    <a href="/">take me away</a>
+    
+    <script>
+        setTimeout(() => {
+            //window.location.href = '/'; //gives history
+            location.replace('/') //does not give history
+        }, 3000)
+
+    </script>
+</body>
+</html>
