@@ -1,0 +1,21 @@
+{
+  "name": "mandatory_01",
+  "version": "0.0.1",
+  "description": "a visual interface containing all notes, code examples, and commandline code relevant from our node.js classes",
+  "keywords": [
+    "web",
+    "node",
+    "class",
+    "notes"
+  ],
+  "license": "MIT",
+  "author": "J-AGGERHOLM",
+  "type": "module",
+  "main": "frontend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
