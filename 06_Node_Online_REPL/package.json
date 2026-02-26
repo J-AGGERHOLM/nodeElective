@@ -1,0 +1,21 @@
+{
+  "name": "node_repl",
+  "version": "0.0.1",
+  "description": "a webapp that allows us to run node as a repl, like other programming languages does",
+  "keywords": [
+    "node",
+    "web",
+    "repl"
+  ],
+  "license": "MIT",
+  "author": "J-AGGERHOLM",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
