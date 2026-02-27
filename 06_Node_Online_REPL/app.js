@@ -1,8 +1,15 @@
-import express from "express";
-
+import express from 'express';
 const app = express();
 
+app.use(express.json());
+
+import path from 'path';
+
 // ================== Pages ==================
+
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve('public/frontend/frontend.html'));
+});
 
 // ================== API ==================
 app.post('/api/repl', (req, res) => {

@@ -11,6 +11,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve('public/frontend/index.html'));
 });
 
+app.get('/about', (req, res) => {
+    res.sendFile(path.resolve('public/frontend/about.html'))
+})
+
 
 // ============ API ============
 
