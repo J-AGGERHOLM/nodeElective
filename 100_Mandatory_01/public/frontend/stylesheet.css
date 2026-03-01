@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    height: 100%;
+}
+
+.background {
+    background-color: rgb(13, 13, 14);
+    gap: 1vw;
+    padding: 1vw;
+}
+
+.page-title {
+    color: rgb(163, 169, 174);
+}
+
+.contents-container{
+    justify-self: center;
+    align-self: center;
+    width: 66vw;
+    height: 100%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    
+}
+
+.accordion {
+    --bs-accordion-border-color: #333a42;
+}
+
+.accordion text {
+    color: aliceblue;
+}
+
+.accordion-body {
+    background-color: rgb(13, 13, 14);
+    color: aliceblue;
+}
+
+.accordion-button {
+    background-color: black;
+    color: aliceblue;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgb(19, 16, 30);
+    color:aliceblue   
+}
+
+.markdown-body {
+    color: aliceblue;
+}
