@@ -26,7 +26,7 @@ body {
 }
 
 .accordion {
-    --bs-accordion-border-color: #333a42;
+    --bs-accordion-border-color: rgb(51, 58, 66);
 }
 
 .accordion text {
@@ -34,7 +34,7 @@ body {
 }
 
 .accordion-body {
-    background-color: rgb(13, 13, 14);
+    background-color: rgb(13, 17, 23);
     color: aliceblue;
 }
 
