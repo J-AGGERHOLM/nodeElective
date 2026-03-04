@@ -1,11 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Page</title>
-</head>
-<body>
-    <h1>this is an about page</h1>
-</body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous" />
+    <link href="frontend/stylesheet.css" rel="stylesheet" />
+  </head>
+  <body class="background">
+    <h1 class="page-title">About</h1>
+    <span class="border border-1 border-light border-opacity-25"></span>
+
+    <!-------------------- Navigation --------------------------------->
+    <div
+      id="navigation-menu"
+      class="navigation-menu btn-group-vertical"
+      role="group"
+      aria-label="Vertical radio toggle button group">
+      <!--buttons:-->
+      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" />
+      <label class="btn btn-outline-primary" for="vbtn-radio1">Documentation</label>
+      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" checked />
+      <label class="btn btn-outline-primary" for="vbtn-radio2">About</label>
+      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off" />
+      <label class="btn btn-outline-primary" for="vbtn-radio3">Assignments</label>
+    </div>
+
+    <div class="contents-container border-light border-opacity-25 border-end border-start">
+      <zero-md class="zero-markdown" src="../markdown/00_about.md"></zero-md>
+    </div>
+
+    <!-------------------- Scripts --------------------------------->
+
+    <script type="module">
+      import ZeroMd, { STYLES } from "https://cdn.jsdelivr.net/npm/zero-md@3";
+
+      customElements.define(
+        "zero-md",
+        class extends ZeroMd {
+          async load() {
+            await super.load();
+            this.template = STYLES.preset("dark"); // or STYLES.preset('dark')
+          }
+        },
+      );
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"></script>
+
+    <script src="../javascript/navigation.js"></script>
+  </body>
 </html>

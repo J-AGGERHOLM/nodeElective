@@ -1,53 +1,56 @@
 body {
-    display: flex;
-    flex: auto;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  height: 100%;
 }
 
 .background {
-    background-color: rgb(13, 13, 14);
-    gap: 1vw;
-    padding: 1vw;
+  background-color: rgb(13, 13, 14);
+  gap: 1vw;
+  padding: 1vw;
 }
 
 .page-title {
-    color: rgb(163, 169, 174);
+  color: rgb(163, 169, 174);
 }
 
-.contents-container{
-    justify-self: center;
-    align-self: center;
-    width: 66vw;
-    height: 100%;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    
+.contents-container {
+  justify-self: center;
+  align-self: center;
+  width: 66vw;
+  height: 100%;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 
 .accordion {
-    --bs-accordion-border-color: rgb(51, 58, 66);
+  --bs-accordion-border-color: rgb(51, 58, 66);
 }
 
 .accordion text {
-    color: aliceblue;
+  color: aliceblue;
 }
 
 .accordion-body {
-    background-color: rgb(13, 17, 23);
-    color: aliceblue;
+  background-color: rgb(13, 17, 23);
+  color: aliceblue;
 }
 
 .accordion-button {
-    background-color: black;
-    color: aliceblue;
+  background-color: black;
+  color: aliceblue;
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: rgb(19, 16, 30);
-    color:aliceblue   
+  background-color: rgb(19, 16, 30);
+  color: aliceblue;
 }
 
-.markdown-body {
-    color: unset;
+.navigation-menu {
+  position: absolute;
+  left: 1vw;
+  top: 15vh;
+  width: 15vw;
+  padding: 1vw;
 }

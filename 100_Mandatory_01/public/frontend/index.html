@@ -15,6 +15,22 @@
     <h1 class="page-title">Documentation</h1>
     <span class="border border-1 border-light border-opacity-25"></span>
 
+    <!-------------------- Navigation --------------------------------->
+    <div
+      id="navigation-menu"
+      class="navigation-menu btn-group-vertical"
+      role="group"
+      aria-label="Vertical radio toggle button group">
+      <!--buttons:-->
+      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked />
+      <label class="btn btn-outline-primary" for="vbtn-radio1">Documentation</label>
+      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" />
+      <label class="btn btn-outline-primary" for="vbtn-radio2">About</label>
+      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off" />
+      <label class="btn btn-outline-primary" for="vbtn-radio3">Assignments</label>
+    </div>
+
+    <!-------------------- Accordion --------------------------------->
     <div class="contents-container border-light border-opacity-25 border-end border-start">
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
@@ -35,6 +51,8 @@
             </div>
           </div>
         </div>
+
+        <!--New accordian-->
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
@@ -55,6 +73,8 @@
             </div>
           </div>
         </div>
+
+        <!--New accordian-->
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
@@ -75,6 +95,8 @@
             </div>
           </div>
         </div>
+
+        <!--New accordian-->
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
@@ -95,6 +117,8 @@
             </div>
           </div>
         </div>
+
+        <!--New accordian-->
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
@@ -118,6 +142,8 @@
       </div>
     </div>
 
+    <!-------------------- Scripts --------------------------------->
+
     <script type="module">
       import ZeroMd, { STYLES } from "https://cdn.jsdelivr.net/npm/zero-md@3";
 
@@ -139,5 +165,7 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"></script>
+
+    <script src="../javascript/navigation.js"></script>
   </body>
 </html>

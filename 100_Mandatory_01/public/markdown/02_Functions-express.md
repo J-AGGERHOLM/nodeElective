@@ -62,12 +62,12 @@ Write `npm install express` to install express
 ^before versioning number upgrades minor builds.  
 ~before versioning number upgrades patches.
 
-#### Installing express:
+#### Installing Dependencies:
 
 `npm install` to install the dependencies from the `package.json`.  
 `node_modules` are our libraries from our dependencies.
 
-**Do not** push `node_modules`.  
+**Do not** push `node_modules`.
 
 #### Setting up the endpoints:
 
