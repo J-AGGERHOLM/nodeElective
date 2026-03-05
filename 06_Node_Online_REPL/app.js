@@ -1,29 +1,47 @@
-import express from 'express';
+import express from "express";
 const app = express();
+app.use(express.static("public"));
 
 app.use(express.json());
 
-import path from 'path';
+import path from "path";
 
 // ================== Pages ==================
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve('public/frontend/frontend.html'));
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve("public/pages/frontend/frontend.html"));
+});
+
+app.get("/about", (req, res) => {
+  res.sendFile(path.resolve("public/pages&frontend/about.html"));
 });
 
 // ================== API ==================
-app.post('/api/repl', (req, res) => {
-    let replCode = req.body?.replCode;
+import { getOrCreateSandboxContext, executeCodeInSandbox } from "./util/replUtil.js";
 
-    if (!replCode) {
-        return res.status(400).send({ errorMessage: 'Missing the key replCode in the JSON body' });
-    }
-    
-    replCode = replCode.replace('console.log("', '').replace('")', '');
+app.post("/api/repl", (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({ errorMessage: "Missing a JSON body" });
+  }
 
-    res.send({ data: replCode });
+  const { replcode, sandboxId } = req.body;
+
+  if (!replCode) {
+    return res.status(400).send({ errorMessage: "Missing the key replCode in the JSON body" });
+  }
+
+  const sandbox = getOrCreateSandboxContext(sandboxId);
+  const { error, success, output, result } = executeCodeInSandbox(sandbox, replcode);
+
+  if (error) {
+    return res.status(500).send({ errorMessage: "Error executing the provided code", error });
+  }
+
+  res.send({ data: replCode });
 });
 
-app.listen(8080, () => {
-    console.log("this server is running on port", 8080)
-})
+const PORT = process.env.PORT; // || 8080;
+
+const server = app.listen(PORT, () => {
+  console.log("this server is running on port", server.address().port);
+});
