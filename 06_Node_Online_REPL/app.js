@@ -24,23 +24,27 @@ app.post("/api/repl", (req, res) => {
     return res.status(400).send({ errorMessage: "Missing a JSON body" });
   }
 
-  const { replcode, sandboxId } = req.body;
+  const { replCode, sandboxId } = req.body;
 
   if (!replCode) {
     return res.status(400).send({ errorMessage: "Missing the key replCode in the JSON body" });
   }
 
   const sandbox = getOrCreateSandboxContext(sandboxId);
-  const { error, success, output, result } = executeCodeInSandbox(sandbox, replcode);
+
+  const { error, success, output, result } = executeCodeInSandbox(sandbox, replCode);
 
   if (error) {
-    return res.status(500).send({ errorMessage: "Error executing the provided code", error });
+    return res.status(500).send({
+      data: { error },
+      errorMessage: "Error executing the provided code",
+    });
   }
 
-  res.send({ data: replCode });
+  res.send({ data: { success, output, result } });
 });
 
-const PORT = process.env.PORT; // || 8080;
+const PORT = process.env.PORT || 8080;
 
 const server = app.listen(PORT, () => {
   console.log("this server is running on port", server.address().port);

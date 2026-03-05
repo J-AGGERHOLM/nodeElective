@@ -1,23 +1,35 @@
-const replCodeOutput = document.getElementById("repl-code-output");
-const replInput = document.getElementById("repl-input");
+const replCodeOutputP = document.getElementById('repl-code-output');
+const replInputInput = document.getElementById('repl-input');
 
-replInput.addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
-    runReplInput();
-    replInput.value = "";
-  }
+
+replInputInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        runReplInput();
+    }
 });
 
+
 function runReplInput() {
-  fetch("/api/repl", {
-    method: "POST",
-    body: JSON.stringify({ replCode: replInput.value }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+    const replCode = replInputInput.value;
+    replInputInput.value = "";
+
+    fetch('/api/repl', {
+        method: "POST",
+        body: JSON.stringify({ replCode }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
     .then((response) => response.json())
-    .then((result) => {
-      console.log(result.data);
+    .then(({ data }) => {
+        if (data.error) {
+            console.log(data.error);
+        
+        } else {
+            console.log(data.output, data.result);
+        }
     });
 }
+
+
+
