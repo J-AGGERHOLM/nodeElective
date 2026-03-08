@@ -17,6 +17,7 @@
     "start-prod": "cross-env port=80 node app.js"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.13.1",
     "cross-env": "^10.1.0",
     "express": "^5.2.1"
   }

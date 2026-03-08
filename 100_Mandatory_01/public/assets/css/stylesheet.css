@@ -43,15 +43,24 @@ body {
   display: flex;
   font-size: larger;
 }
+
 .navigation a {
   text-decoration: none;
   color: unset;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10%;
 }
 
 .navigation a:hover {
   color: rgb(135, 135, 255);
   font-size: larger;
   cursor: pointer;
+}
+
+.navigation i {
+  width: 1em;
+  height: auto;
 }
 
 .navigation li {
@@ -69,7 +78,6 @@ body {
 }
 
 /*---------- Page contents ------------*/
-
 
 .contents-container {
   justify-self: center;
