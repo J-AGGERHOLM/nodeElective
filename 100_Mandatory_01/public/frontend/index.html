@@ -15,89 +15,114 @@
   <body class="background">
     <h1 class="page-title">Overview</h1>
     <span class="border border-1 border-light border-opacity-25"></span>
-
-    <!-------------------- Navigation --------------------------------->
-    <div
-      id="navigation-menu"
-      class="navigation-menu btn-group-vertical"
-      role="group"
-      aria-label="Vertical radio toggle button group">
-      <!--buttons:-->
-      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked />
-      <label class="btn btn-outline-primary" for="vbtn-radio1">Overview</label>
-      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" />
-      <label class="btn btn-outline-primary" for="vbtn-radio2">About</label>
-      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off" />
-      <label class="btn btn-outline-primary" for="vbtn-radio3">Assignments</label>
-    </div>
-
-    <!-------------------- page contents --------------------------------->
-    <div class="contents-container border-light border-opacity-25 border-end border-start">
-      <div class="overview-listed-items">
+    <div class="page-row">
+      <!-------------------- Navigation --------------------------------->
+      <div class="page-column-1 navigation">
+        <span class="text-primary">
+          <a href="/">Overview</a>
+        </span>
+        <span>
+          <a href="/about">About</a>
+        </span>
+        <span>
+          <a href="/assignments">Assignments</a>
+        </span>
+        <span>
+          <span>Notes:</span>
+        </span>
         <li>
-          <a href="/notes/1"><h3>Node intro</h3></a>
-          <br />
-          <span>
-            In the first Node.js class, we introduced Node as a runtime environment that allows JavaScript to run
-            outside the browser, enabling it to interact with servers, databases, and other backend systems. We explored
-            the Node REPL, which allows developers to quickly test JavaScript code directly from the terminal.
-          </span>
+          <a href="/notes/1">01. Node Intro</a>
         </li>
         <li>
-          <a href="/notes/2"><h3>Functions & Express</h3></a>
-          <br />
-          <span
-            >In the second Node.js class, we focused on JavaScript functions, We covered different ways to declare
-            functions (arrow functions, anonymous functions), and the use of callback functions. The class then
-            introduced NPM and the package.json file as Node’s build and dependency manager, including installing
-            packages like Expres.</span
-          >
+          <a href="/notes/2">02. Functions & Express</a>
         </li>
         <li>
-          <a href="/notes/3"><h3>Loops & Body Parser && XSS</h3></a>
-          <br />
-          <span>
-            In this class, we introduced Nodemon for running the server with automatic restarts during development. We
-            also added Express’s built-in body parser (express.json()). <br />
-            The lesson covered JavaScript array loop methods, along with guidelines for when to use them, and examples
-            using the ternary operator and spread operator. <br />
-            We discussed XSS (Cross-Site Scripting) risks when manipulating the DOM and how to sanitize input when using
-            .innerHTML.</span
-          >
+          <a href="/notes/3">03. Loops & Body Parser && XSS</a>
         </li>
         <li>
-          <a href="/notes/4"><h3>Falsy, Methods & Styling</h3></a>
-          <br />
-          <span
-            >In this class, we covered common issues such as the undefined.id error, which often occurs when the Express
-            JSON body parser has not been enabled. We also looked at the spread operator for combining objects, and
-            created a proxy endpoint in Express, fetch responses as readable streams, JavaScript date methods, and
-            common falsy values. We also reviewed the three ways to style HTML: inline, in the header, and through an
-            external stylesheet.</span
-          >
+          <a href="/notes/4">04. Falsy, Methods & Styling</a>
         </li>
         <li>
-          <a href="/notes/5"><h3>Express Static, ES Modules & Navigation</h3></a>
-          <br />
-          <span
-            >In this class, we configured Express to serve static files to avoid MIME errors and restrict direct file
-            access. The lesson then introduced ES Modules (import/export) as the preferred approach over CommonJS, and
-            how to serve files using the path library. Finally, we covered basic frontend navigation methods,
-            initializing Node projects with npm init, installing dependencies with npm install, and the use of optional
-            chaining (?.) in JavaScript.
-          </span>
+          <a href="/notes/5">05. Express Static, ES Modules & Navigation</a>
         </li>
         <li>
-          <a href="/notes/6"><h3>Scripts, Ports & Node env</h3></a>
-          <br />
-          <span
-            >In this class, we worked with scripts in package.json to run commands through npm run. We removed magic
-            numbers by storing values like the port in variables and introduced environment variables, including using
-            process.env and the cross-env package.</span
-          >
+          <a href="/notes/6">06. Scripts, Ports & Node env</a>
         </li>
       </div>
+
+      <!-------------------- page contents --------------------------------->
+      <div class="page-column-2">
+        <div class="contents-container border-light border-opacity-25 border-end border-start">
+          <div class="overview-listed-items">
+            <li>
+              <a href="/notes/1"><h3>Node intro</h3></a>
+              <br />
+              <span>
+                In the first Node.js class, we introduced Node as a runtime environment that allows JavaScript to run
+                outside the browser, enabling it to interact with servers, databases, and other backend systems. We
+                explored the Node REPL, which allows developers to quickly test JavaScript code directly from the
+                terminal.
+              </span>
+            </li>
+            <li>
+              <a href="/notes/2"><h3>Functions & Express</h3></a>
+              <br />
+              <span
+                >In the second Node.js class, we focused on JavaScript functions, We covered different ways to declare
+                functions (arrow functions, anonymous functions), and the use of callback functions. The class then
+                introduced NPM and the package.json file as Node’s build and dependency manager, including installing
+                packages like Expres.</span
+              >
+            </li>
+            <li>
+              <a href="/notes/3"><h3>Loops & Body Parser && XSS</h3></a>
+              <br />
+              <span>
+                In this class, we introduced Nodemon for running the server with automatic restarts during development.
+                We also added Express’s built-in body parser (express.json()). <br />
+                The lesson covered JavaScript array loop methods, along with guidelines for when to use them, and
+                examples using the ternary operator and spread operator. <br />
+                We discussed XSS (Cross-Site Scripting) risks when manipulating the DOM and how to sanitize input when
+                using .innerHTML.</span
+              >
+            </li>
+            <li>
+              <a href="/notes/4"><h3>Falsy, Methods & Styling</h3></a>
+              <br />
+              <span
+                >In this class, we covered common issues such as the undefined.id error, which often occurs when the
+                Express JSON body parser has not been enabled. We also looked at the spread operator for combining
+                objects, and created a proxy endpoint in Express, fetch responses as readable streams, JavaScript date
+                methods, and common falsy values. We also reviewed the three ways to style HTML: inline, in the header,
+                and through an external stylesheet.</span
+              >
+            </li>
+            <li>
+              <a href="/notes/5"><h3>Express Static, ES Modules & Navigation</h3></a>
+              <br />
+              <span
+                >In this class, we configured Express to serve static files to avoid MIME errors and restrict direct
+                file access. The lesson then introduced ES Modules (import/export) as the preferred approach over
+                CommonJS, and how to serve files using the path library. Finally, we covered basic frontend navigation
+                methods, initializing Node projects with npm init, installing dependencies with npm install, and the use
+                of optional chaining (?.) in JavaScript.
+              </span>
+            </li>
+            <li>
+              <a href="/notes/6"><h3>Scripts, Ports & Node env</h3></a>
+              <br />
+              <span
+                >In this class, we worked with scripts in package.json to run commands through npm run. We removed magic
+                numbers by storing values like the port in variables and introduced environment variables, including
+                using process.env and the cross-env package.</span
+              >
+            </li>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="gutter page-column-3"></div>
 
     <!-------------------- Scripts --------------------------------->
 
@@ -123,6 +148,5 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"></script>
 
-    <script src="../assets/js/navigation.js"></script>
   </body>
 </html>

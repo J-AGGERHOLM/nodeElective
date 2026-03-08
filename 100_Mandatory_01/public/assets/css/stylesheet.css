@@ -5,15 +5,71 @@ body {
   height: 100%;
 }
 
+.page-title {
+  color: rgb(163, 169, 174);
+}
+
+/*---------- Page layout ------------*/
 .background {
   background-color: #0d1117;
   gap: 1vw;
   padding: 1vw;
 }
 
-.page-title {
-  color: rgb(163, 169, 174);
+.page-row {
+  display: flex;
+  flex-direction: row;
 }
+
+.page-column-1 {
+  width: 16.5%;
+  max-width: 16.5%;
+  flex-grow: 0;
+}
+
+.page-column-2 {
+  width: 67%;
+  flex-shrink: 0;
+}
+
+.page-column-3 {
+  width: 16.5%;
+}
+
+/*---------- Navigation ------------*/
+.navigation {
+  color: rgb(163, 169, 174);
+  flex-direction: column;
+  display: flex;
+  font-size: larger;
+}
+.navigation a {
+  text-decoration: none;
+  color: unset;
+}
+
+.navigation a:hover {
+  color: rgb(135, 135, 255);
+  font-size: larger;
+  cursor: pointer;
+}
+
+.navigation li {
+  display: flex;
+  padding-left: 5%;
+  font-size: small;
+  padding-top: 2%;
+  max-width: 80%;
+}
+
+.navigation li a {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/*---------- Page contents ------------*/
+
 
 .contents-container {
   justify-self: center;
@@ -35,39 +91,10 @@ body {
   color: hsl(208, 8%, 48%);
 }
 
+/*---------- Overview page ------------*/
+
 .overview-listed-items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-.accordion {
-  --bs-accordion-border-color: rgb(51, 58, 66);
-}
-
-.accordion text {
-  color: aliceblue;
-}
-
-.accordion-body {
-  background-color: rgb(13, 17, 23);
-  color: aliceblue;
-}
-
-.accordion-button {
-  background-color: black;
-  color: aliceblue;
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: rgb(19, 16, 30);
-  color: aliceblue;
-}
-
-.navigation-menu {
-  position: absolute;
-  left: 1vw;
-  top: 15vh;
-  width: 15vw;
-  padding: 1vw;
 }

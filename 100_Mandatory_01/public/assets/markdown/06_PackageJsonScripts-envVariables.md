@@ -1,4 +1,4 @@
-0503/2026
+05/03/2026
 
 ## Scripts in the package.json
 
@@ -78,6 +78,5 @@ example:
         } else {
             console.log(data.output, data.result);
         }
-
 
 in this code snippet, instead of having to write response.data, again, and again, we destructure response, so that we may call data directly.

@@ -15,24 +15,46 @@
   <body class="background">
     <h1 class="page-title">Static Folder, ES Modules & Navigation</h1>
     <span class="border border-1 border-light border-opacity-25"></span>
-
-    <!-------------------- Navigation --------------------------------->
-    <div
-      id="navigation-menu"
-      class="navigation-menu btn-group-vertical"
-      role="group"
-      aria-label="Vertical radio toggle button group">
-      <!--buttons:-->
-      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" />
-      <label class="btn btn-outline-primary" for="vbtn-radio1">Overview</label>
-      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" checked />
-      <label class="btn btn-outline-primary" for="vbtn-radio2">About</label>
-      <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off" />
-      <label class="btn btn-outline-primary" for="vbtn-radio3">Assignments</label>
-    </div>
-
-    <div class="contents-container border-light border-opacity-25 border-end border-start">
-      <zero-md class="zero-markdown" src="../assets/markdown/05_Static-EsModules-Navigation.md"></zero-md>
+    <div class="page-row">
+      <!-------------------- Navigation --------------------------------->
+      <div class="page-column-1 navigation">
+        <span>
+          <a href="/">Overview</a>
+        </span>
+        <span>
+          <a href="/about">About</a>
+        </span>
+        <span>
+          <a href="/assignments">Assignments</a>
+        </span>
+        <span>
+          <span>Notes:</span>
+        </span>
+        <li>
+          <a href="/notes/1">01. Node Intro</a>
+        </li>
+        <li>
+          <a href="/notes/2">02. Functions & Express</a>
+        </li>
+        <li>
+          <a href="/notes/3">03. Loops & Body Parser && XSS</a>
+        </li>
+        <li>
+          <a href="/notes/4">04. Falsy, Methods & Styling</a>
+        </li>
+        <li class="text-primary">
+          <a href="/notes/5">05. Express Static, ES Modules & Navigation</a>
+        </li>
+        <li>
+          <a href="/notes/6">06. Scripts, Ports & Node env</a>
+        </li>
+      </div>
+      <!-------------------- page contents --------------------------------->
+      <div class="page-column-2">
+        <div class="contents-container border-light border-opacity-25 border-end border-start">
+          <zero-md class="zero-markdown" src="../assets/markdown/05_Static-EsModules-Navigation.md"></zero-md>
+        </div>
+      </div>
     </div>
 
     <!-------------------- Scripts --------------------------------->
@@ -58,7 +80,5 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"></script>
-
-    <script src="../assets/js/navigation.js"></script>
   </body>
 </html>

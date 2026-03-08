@@ -1,6 +1,6 @@
 // ============ Scripts ============
 
-const docuBtn = document.getElementById("vbtn-radio1");
+const docuBtn = document.getElementById("overView-link");
 const aboutBtn = document.getElementById("vbtn-radio2");
 const assignBtn = document.getElementById("vbtn-radio3");
 
