@@ -24,6 +24,30 @@ body {
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
+#repl-code-output {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  height: 50vh;
+  background-color: rgb(40, 36, 46);
+  overflow-y: auto;
+}
+
+#repl-input {
+  width: 49vw;
+  height: 2em;
+}
+
+.repl-code-error {
+  color: red;
+}
+
+.repl-code-output {
+  color: aliceblue;
+}
+
+.repl-code-result {
+  color: greenyellow;
+}

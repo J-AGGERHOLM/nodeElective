@@ -1,35 +1,72 @@
-const replCodeOutputP = document.getElementById('repl-code-output');
-const replInputInput = document.getElementById('repl-input');
+const replCodeOutputDiv = document.getElementById("repl-code-output");
+const replInputInput = document.getElementById("repl-input");
 
-
-replInputInput.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
-        runReplInput();
-    }
+replInputInput.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    runReplInput();
+  }
 });
 
-
 function runReplInput() {
-    const replCode = replInputInput.value;
-    replInputInput.value = "";
+  const replCode = replInputInput.value;
+  replInputInput.value = "";
+  addInput(replCode);
 
-    fetch('/api/repl', {
-        method: "POST",
-        body: JSON.stringify({ replCode }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+  fetch("/api/repl", {
+    method: "POST",
+    body: JSON.stringify({ replCode }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => response.json())
     .then(({ data }) => {
-        if (data.error) {
-            console.log(data.error);
-        
-        } else {
-            console.log(data.output, data.result);
-        }
+      if (data.error) {
+        addError(data.error);
+      } else {
+        //there's always result, but not allways output
+        addOutputAndResult(data.output, data.result);
+      }
     });
 }
 
+function addInput(replCode) {
+  const replCodeDiv = document.createElement("div");
+  replCodeDiv.textContent = `>${replCode}`;
+  replCodeDiv.classList.add("repl-code-prompt");
 
+  replCodeOutputDiv.appendChild(replCodeDiv);
+  scrollToTheBottom();
+}
 
+//Assignment create an addError function it should create a class of 'repl-code-error'
+//bonus style it
+
+function addError(error) {
+  const replErrorDiv = document.createElement("div");
+  replErrorDiv.textContent = error;
+  replErrorDiv.classList.add("repl-code-error");
+
+  replCodeOutputDiv.appendChild(replErrorDiv);
+  scrollToTheBottom();
+}
+
+function scrollToTheBottom() {
+  replCodeOutputDiv.scrollTop = replCodeOutputDiv.scrollHeight;
+}
+
+function addOutputAndResult(output, result) {
+  if (output) {
+    const replOutputDiv = document.createElement("div");
+    replOutputDiv.textContent = output;
+    replOutputDiv.classList.add("repl-code-output");
+
+    replCodeOutputDiv.appendChild(replOutputDiv);
+  }
+
+  const replResultDiv = document.createElement("div");
+  replResultDiv.textContent = output;
+  replResultDiv.classList.add("repl-code-output");
+
+  replCodeOutputDiv.appendChild(replResultDiv);
+}
