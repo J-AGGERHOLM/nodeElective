@@ -21,6 +21,7 @@ function runReplInput() {
   })
     .then((response) => response.json())
     .then(({ data }) => {
+      console.log(data);
       if (data.error) {
         addError(data.error);
       } else {
@@ -66,7 +67,7 @@ function addOutputAndResult(output, result) {
 
   const replResultDiv = document.createElement("div");
   replResultDiv.textContent = result;
-  replResultDiv.classList.add("repl-code-output");
+  replResultDiv.classList.add("repl-code-result");
 
   replCodeOutputDiv.appendChild(replResultDiv);
 }
