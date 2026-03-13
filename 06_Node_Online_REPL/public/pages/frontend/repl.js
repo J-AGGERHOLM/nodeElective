@@ -65,7 +65,7 @@ function addOutputAndResult(output, result) {
   }
 
   const replResultDiv = document.createElement("div");
-  replResultDiv.textContent = output;
+  replResultDiv.textContent = result;
   replResultDiv.classList.add("repl-code-output");
 
   replCodeOutputDiv.appendChild(replResultDiv);
