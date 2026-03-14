@@ -1,7 +1,10 @@
+
 import fs from "fs";
 
 export function readPage(filePath) {
+
   return fs.readFileSync(filePath).toString();
+  
 }
 
 //default value of options in an empty object

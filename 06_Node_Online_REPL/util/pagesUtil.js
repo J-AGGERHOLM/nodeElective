@@ -1,3 +1,4 @@
+
 import { readPage, constructPage } from "./templatingEngine.js";
 
 const frontPage = readPage("./public/pages/frontend/frontend.html");

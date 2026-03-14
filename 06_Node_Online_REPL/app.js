@@ -5,6 +5,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 // ================== Pages ==================
+
 import pagesRouter from "./routers/pagesRouter.js";
 
 app.use(pagesRouter);
