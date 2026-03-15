@@ -43,6 +43,7 @@ body {
   flex-direction: column;
   display: flex;
   font-size: larger;
+  gap: 0.35em;
 }
 
 .navigation a {
