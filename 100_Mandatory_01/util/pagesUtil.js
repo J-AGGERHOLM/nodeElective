@@ -13,6 +13,12 @@ export const aboutPage = constructPage(about, {
   active: "about",
 });
 
+const assignments = readPage("./public/pages/assignments.html");
+export const assignmentsPage = constructPage(assignments, {
+  documentTitle: "Assignments",
+  active: "assignments",
+});
+
 const notesOne = readPage("./public/pages/01_notes.html");
 export const notesOnePage = constructPage(notesOne, {
   documentTitle: "Node Intro",

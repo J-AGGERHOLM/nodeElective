@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   aboutPage,
   indexPage,
+  assignmentsPage,
   notesOnePage,
   notesTwoPage,
   notesThreePage,
@@ -19,6 +20,10 @@ pagesRouter.get("/", (req, res) => {
 
 pagesRouter.get("/about", (req, res) => {
   res.send(aboutPage);
+});
+
+pagesRouter.get("/assignments", (req, res) => {
+  res.send(assignmentsPage);
 });
 
 pagesRouter.get("/notes/1", (req, res) => {

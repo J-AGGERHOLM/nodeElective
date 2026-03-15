@@ -15,6 +15,11 @@ export function constructPage(page, options = {}) {
     markDownSection = markDown.replace(`$$MARKDOWN$$`, options.markDownPath);
   }
 
+  let assignmentsSection = "";
+  if (options.active === "assignments") {
+    //this is where i'll add the logic for loading in assignment components later
+  }
+
   return (
     header.replaceAll(`$$DOCUMENT_TITLE$$`, options.documentTitle || "Node.js Documentation") +
     navigation
@@ -30,6 +35,7 @@ export function constructPage(page, options = {}) {
       .replace("$$NOTE_07_ACTIVE$$", options.active === "note-07" ? "text-primary" : "") +
     page +
     markDownSection +
+    assignmentsSection +
     footer
   );
 }
