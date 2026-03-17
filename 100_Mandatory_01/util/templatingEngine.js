@@ -2,11 +2,12 @@ import fs from "fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export function readPage(filePath) {
-  return fs.readFileSync(path.resolve(__dirname, "..", filePath)).toString();
+  const absolutePath = path.resolve(__dirname, "..", filePath);
+  return fs.readFileSync(absolutePath, "utf-8");
 }
 
 export function constructPage(page, options = {}) {
