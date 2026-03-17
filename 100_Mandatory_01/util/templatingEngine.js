@@ -1,11 +1,13 @@
 import fs from "fs";
-import path from "path";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const workDirPath = process.cwd();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export function readPage(contentPath) {
-  const filePath = path.join(workDirPath, "100_Mandatory_01", contentPath);
-  return fs.readFileSync(filePath).toString();
+  const filePath = path.resolve(__dirname, "..", contentPath);
+  return fs.readFileSync(filePath, "utf-8");
 }
 
 export function constructPage(page, options = {}) {
