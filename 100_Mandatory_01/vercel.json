@@ -1,8 +1,7 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "api/**/*.js": {
-      "includeFiles": "public/pages/**/*.html"
+    "**/*.js": {
+      "includeFiles": "100_Mandatory_01/public/pages/**/*.html"
     }
   }
 }
