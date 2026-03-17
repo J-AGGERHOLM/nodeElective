@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 export function readPage(filePath) {
-  return fs.readFileSync(path.resolve(filePath)).toString();
+  return fs.readFileSync(path.join(process.cwd(), filePath)).toString();
 }
 
 export function constructPage(page, options = {}) {
