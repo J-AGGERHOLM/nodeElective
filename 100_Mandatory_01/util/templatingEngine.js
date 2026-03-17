@@ -1,6 +1,10 @@
 import fs from "fs";
+import path from "path";
 
-export function readPage(filePath) {
+const workDirPath = process.cwd();
+
+export function readPage(contentPath) {
+  const filePath = path.join( workDirPath, contentPath);
   return fs.readFileSync(filePath).toString();
 }
 
