@@ -4,7 +4,7 @@ import path from "path";
 const workDirPath = process.cwd();
 
 export function readPage(contentPath) {
-  const filePath = path.join( workDirPath, contentPath);
+  const filePath = path.join(workDirPath, "100_Mandatory_01", contentPath);
   return fs.readFileSync(filePath).toString();
 }
 
