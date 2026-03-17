@@ -1,12 +1,13 @@
 import fs from "fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import path from "path";
 
 export function readPage(contentPath) {
-  const filePath = path.resolve(__dirname, "..", contentPath);
+  const filePath = path.join(process.cwd(), contentPath);
+
+  console.log("cwd:", process.cwd());
+  console.log("filePath:", filePath);
+  console.log("exists:", fs.existsSync(filePath));
+
   return fs.readFileSync(filePath, "utf-8");
 }
 
