@@ -1,6 +1,6 @@
 import { readPage, constructPage } from "./templatingEngine.js";
 
-const index = readPage("./public/pages/index.html");
+const index = readPage("public/pages/index.html");
 export const indexPage = constructPage(index, {
   documentTitle: "Overview",
   active: "overview",
