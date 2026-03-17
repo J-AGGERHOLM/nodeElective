@@ -1,14 +1,11 @@
 import fs from "fs";
 import path from "path";
 
+const workDirPath = process.cwd();
+
 export function readPage(contentPath) {
-  const filePath = path.join(process.cwd(), contentPath);
-
-  console.log("cwd:", process.cwd());
-  console.log("filePath:", filePath);
-  console.log("exists:", fs.existsSync(filePath));
-
-  return fs.readFileSync(filePath, "utf-8");
+  const filePath = path.join( workDirPath, contentPath);
+  return fs.readFileSync(filePath).toString();
 }
 
 export function constructPage(page, options = {}) {

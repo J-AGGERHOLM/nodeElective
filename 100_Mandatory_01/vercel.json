@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "**/*.js": {
-      "includeFiles": "100_Mandatory_01/public/pages/**/*.html"
-    }
-  }
-}
