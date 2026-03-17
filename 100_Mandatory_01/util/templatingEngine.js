@@ -1,13 +1,7 @@
 import fs from "fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export function readPage(filePath) {
-  const absolutePath = path.resolve(__dirname, "..", filePath);
-  return fs.readFileSync(absolutePath, "utf-8");
+  return fs.readFileSync(filePath).toString();
 }
 
 export function constructPage(page, options = {}) {
