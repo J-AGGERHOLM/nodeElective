@@ -1,5 +1,5 @@
 <script>
-    let {name, familySheep, isGirl} = $props();
+    let {name, familySheep, isGirl, onShowLove, onTakeCookie, drinkPantry = $bindable()} = $props();
 </script>
 <div
 class={familySheep || "not-a-sheep"}
@@ -8,6 +8,10 @@ class:is-boy={!isGirl}
 >
 <h3>I'm {name}</h3>
 </div>
+
+<button onclick={() => onShowLove(name)}>show love</button>
+<button onclick={() => onTakeCookie(name)}> take cookie</button>
+<button onclick={() => drinkPantry.pop()}> have a drink</button>
 
 <style>
     div{
