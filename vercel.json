@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "**/*.js": {
-      "includeFiles": "public/pages/**/*.html"
-    }
-  }
-}
