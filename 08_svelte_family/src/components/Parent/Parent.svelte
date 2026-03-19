@@ -3,6 +3,9 @@
 
     let { name, children } = $props();
 
+    import { fridgeMessages } from "../../stores/fridgeStore";
+
+
     function handleShowLove(name) {
       console.log(`${name} loves you`)
     }
@@ -16,8 +19,12 @@
       console.log(`${name} takes a cookie 🍪`)
     }
 
+  
+
 
 </script>
+
+<button onclick={fridgeMessages.wipe}>Wipe Fridge</button>
 <h2>{cookiejar}</h2>
 <h2>{drinkPantry}</h2>
 <h1>I'm a parent! my name is {name}</h1>

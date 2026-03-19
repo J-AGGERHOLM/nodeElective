@@ -1,6 +1,25 @@
 <script>
     let {name, familySheep, isGirl, onShowLove, onTakeCookie, drinkPantry = $bindable()} = $props();
+
+    import { fridgeMessages } from "../../stores/fridgeStore.js";
+
+    let fridgeMessageInput = $state("");
+    function handleSubmitFridgeMessage() {
+        console.log(fridgeMessageInput)
+        const fridgeMessageToCreate = {
+            name,
+            message: fridgeMessageInput
+        }
+        $fridgeMessages.push(fridgeMessageToCreate)
+        fridgeMessages.set($fridgeMessages)
+        fridgeMessageInput = "";
+    }
+
 </script>
+
+<input bind:value={fridgeMessageInput} placeholder="Type your fridge message...">
+<button onclick={handleSubmitFridgeMessage}> Write the fridge message</button>
+
 <div
 class={familySheep || "not-a-sheep"}
 class:is-girl={isGirl}
