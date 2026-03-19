@@ -2,8 +2,8 @@
     import {fridgeMessages } from "../../stores/fridgeStore.js"
 </script>
 
-{#each fridgeMessages as fridgeMessage}
-
+{#each $fridgeMessages as fridgeMessage}
+<p>{fridgeMessage.name || "Household"}: {fridgeMessage.message}</p>
 {/each}
 
 <slot></slot>

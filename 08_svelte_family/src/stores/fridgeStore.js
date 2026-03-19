@@ -3,9 +3,9 @@ import { writable } from "svelte/store";
 function createFridge() {
   const defaultMessage = {
     name: "",
-    message: "write your message on the fridge",
+    message: "write your message on the fridge"
   };
-  const { set, update, subscribe } = writable({ defaultMessage });
+  const { set, update, subscribe } = writable([ defaultMessage ]);
 
   return {
     set,
