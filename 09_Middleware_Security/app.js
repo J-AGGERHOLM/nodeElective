@@ -5,6 +5,18 @@ const app = express();
 
 app.use(helmet());
 
+import session from "express-session";
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false },
+  }),
+);
+
+
+
 import { rateLimit } from "express-rate-limit";
 
 const generalLimiter = rateLimit({
@@ -26,16 +38,16 @@ const authLimiter = rateLimit({
   ipv6Subnet: 56,
 });
 
-app.use("/auth", authLimiter)
+app.use("/auth", authLimiter);
 
 import middlewareRouter from "./routers/middlewareRouter.js";
 app.use(middlewareRouter);
 
-
-
 import authRouter from "./routers/authRouter.js";
 app.use(authRouter);
 
+import sessionRouter from "./routers/sessionRouter.js";
+app.use(sessionRouter)
 
 
 //needs to be after middleware, because */{splat} will always match
