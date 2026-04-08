@@ -12,5 +12,12 @@
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "svelte": "^5.53.12",
     "vite": "^8.0.1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express-rate-limit": "^8.3.2",
+    "express-session": "^1.19.0",
+    "helmet": "^8.1.0",
+    "toastr": "^2.1.4"
   }
 }
