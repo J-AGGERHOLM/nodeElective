@@ -1,5 +1,8 @@
+import dotenv from "dotenv/config"
 import express from "express";
 import helmet from "helmet";
+
+dotenv.config(process.env.SESSION_SECRET);
 
 const app = express();
 
@@ -8,7 +11,7 @@ app.use(helmet());
 import session from "express-session";
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false },
