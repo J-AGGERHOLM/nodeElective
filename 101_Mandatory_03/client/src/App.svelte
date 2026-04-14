@@ -29,3 +29,4 @@
   <div class="toast {$toast.type}">
     {$toast.message}
   </div>
+{/if}
