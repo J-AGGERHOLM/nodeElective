@@ -2,7 +2,7 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/auth/login", (req, res) => {
+router.post("/auth/login", (req, res) => {
   //compare password to DB here:
   const isMatch = false;
   if (isMatch) {

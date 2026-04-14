@@ -1,10 +1,30 @@
+<script>
+import { fetchGet, fetchPost } from "../../util/fetchUtil.js"
+import { showToast } from "../../stores/toastStore.js";
+
+let username = "";
+let password = "";
+
+async function handleLogin(event) {
+    event.preventDefault();
+
+    const result = await fetchPost("/auth/login", { username, password });
+
+    if (result.ok) {
+      showToast(result.data.message, "success");
+    } else {
+      showToast(result.data.message, "error")
+    }
+  }
+</script>
+
 <div id="loginCard" class="loginCard">
-    <form action="/auth/login">
+    <form on:submit={handleLogin}>
         <input type="text" id="username" name="username" placeholder="Username">
     <br>
-        <input type="text" id="password" name="password" placeholder="Password">
+        <input type="password" id="password" name="password" placeholder="Password">
     <br>
-        <button type="submit" value="submit">Log-in</button>
+        <button type="submit">Log-in</button>
     </form>
 </div>
 
