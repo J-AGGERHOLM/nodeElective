@@ -4,12 +4,12 @@ import express from "express";
 const app = express();
 
 import helmet from "helmet";
-app.use(helmet())
+app.use(helmet());
 
 import cors from "cors";
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    origin: "http://localhost:5173",
     credentials: true,
   }),
 );
@@ -23,7 +23,6 @@ app.use(
     cookie: { secure: false },
   }),
 );
-
 
 import { rateLimit } from "express-rate-limit";
 
@@ -40,14 +39,13 @@ app.use(generalLimiter);
 
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  limit: 5,
+  limit: 15,
   standardHeaders: "draft-8",
   legacyHeaders: false,
   ipv6Subnet: 56,
 });
 
 app.use("/auth", authLimiter);
-
 
 //======== Routers ========//
 import authRouter from "./routers/authRouter.js";

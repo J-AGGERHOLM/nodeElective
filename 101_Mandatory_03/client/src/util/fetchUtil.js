@@ -21,7 +21,8 @@ export async function fetchPost(endpoint, body) {
       },
       body: JSON.stringify(body),
     });
-    return await response.json();
+    const data = await response.json();
+    return { ok: response.ok, data };
   } catch (error) {
     console.log(error);
   }

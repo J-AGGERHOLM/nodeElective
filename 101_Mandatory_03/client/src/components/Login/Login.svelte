@@ -1,6 +1,7 @@
 <script>
 import { fetchGet, fetchPost } from "../../util/fetchUtil.js"
-import { showToast } from "../../stores/toastStore.js";
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 
 let username = "";
 let password = "";
@@ -11,9 +12,9 @@ async function handleLogin(event) {
     const result = await fetchPost("/auth/login", { username, password });
 
     if (result.ok) {
-      showToast(result.data.message, "success");
+      toastr.info(result.data.message, "success");
     } else {
-      showToast(result.data.message, "error")
+      toastr.warning(result.data.message, "error")
     }
   }
 </script>

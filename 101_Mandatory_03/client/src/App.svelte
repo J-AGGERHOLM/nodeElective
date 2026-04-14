@@ -2,8 +2,6 @@
 
   import { Router, Link, Route } from "svelte-routing"
 
-  import { toast } from "./stores/toastStore.js"
-
   import LogInPage from "./pages/logInPage.svelte";
   import Welcome from "./pages/welcome.svelte";
   import Admin from "./pages/admin.svelte";
@@ -25,8 +23,3 @@
   </div>
 </Router>
 
-{#if $toast.message}
-  <div class="toast {$toast.type}">
-    {$toast.message}
-  </div>
-{/if}
