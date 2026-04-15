@@ -1,5 +1,5 @@
 <script>
-
+  import "../src/app.css"
   import { Router, Link, Route } from "svelte-routing"
 
   import LogInPage from "./pages/logInPage.svelte";

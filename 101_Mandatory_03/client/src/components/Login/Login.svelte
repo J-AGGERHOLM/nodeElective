@@ -1,4 +1,5 @@
 <script>
+  import { navigate } from "svelte-routing";
 import { fetchGet, fetchPost } from "../../util/fetchUtil.js"
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
@@ -13,6 +14,7 @@ async function handleLogin(event) {
 
     if (result.ok) {
       toastr.info(result.data.message, "success");
+      setTimeout(() => navigate("/welcome"), 2000);
     } else {
       toastr.warning(result.data.message, "error")
     }
