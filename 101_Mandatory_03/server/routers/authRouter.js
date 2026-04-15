@@ -4,7 +4,14 @@ const router = Router();
 
 router.post("/auth/login", (req, res) => {
   //compare password to DB here:
-  const isMatch = false;
+  let isMatch = false;
+  const tempUsername = "jacob";
+  console.log(req.body);
+
+  if (req.body.username === tempUsername) {
+    isMatch = true;
+  }
+
   if (isMatch) {
     req.session.loggedIn = true;
     res.status(200).send({ message: "You're logged in" });

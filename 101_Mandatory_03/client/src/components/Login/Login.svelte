@@ -21,9 +21,9 @@ async function handleLogin(event) {
 
 <div id="loginCard" class="loginCard">
     <form on:submit={handleLogin}>
-        <input type="text" id="username" name="username" placeholder="Username">
+        <input type="text" id="username" name="username" placeholder="Username" bind:value={username}>
     <br>
-        <input type="password" id="password" name="password" placeholder="Password">
+        <input type="password" id="password" name="password" placeholder="Password" bind:value={password}>
     <br>
         <button type="submit">Log-in</button>
     </form>
