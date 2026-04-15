@@ -11,9 +11,9 @@
 
 <Router>
   <nav>
-    <Link to = "/"></Link>  
-    <Link to = "/welcome"></Link>  
-    <Link to = "/admin"></Link>  
+    <Link to = "/">Log-in</Link>  
+    <Link to = "/welcome">Welcome</Link>  
+    <Link to = "/admin">Admin</Link>  
   </nav>
 
   <div>
