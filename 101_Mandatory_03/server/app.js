@@ -41,7 +41,7 @@ app.use(generalLimiter);
 
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  limit: 15,
+  limit: 100,
   standardHeaders: "draft-8",
   legacyHeaders: false,
   ipv6Subnet: 56,
@@ -52,6 +52,23 @@ app.use("/auth", authLimiter);
 //======== Routers ========//
 import authRouter from "./routers/authRouter.js";
 app.use(authRouter);
+
+
+
+
+//======== 404 handling ========//
+app.get("/{*splat}", (req, res) => {
+  res.send(`
+        <div>
+            <h1>404</h1>
+            <h2>Page - ${req.path}doesn't exist</h2>
+        </div>`);
+});
+
+app.all("/{*splat}", (req, res) => {
+  console.log(req.method);
+  res.send({ errorMessage: `the route for ${req.path} and the HTTP method ${req.method} does not exist` });
+});
 
 const PORT = process.env.PORT ?? 8080;
 
