@@ -1,6 +1,7 @@
 import { Router } from "express";
 import db from "../database/connection.js";
 import { comparePassword } from "../util/bcryptCompare.js";
+import { transporter, getPreviewUrl } from "../util/nodemailerTransporter.js";
 
 const router = Router();
 
@@ -17,8 +18,8 @@ router.post("/auth/login", async (req, res) => {
   //compare password to DB here:
   const { username, password } = req.body;
   const result = await db.get(`SELECT role, password FROM users WHERE  username = ? `, [username]);
-  
-  const isMatch = await comparePassword(password, result.password)
+
+  const isMatch = await comparePassword(password, result.password);
 
   if (isMatch && result.role === "Admin") {
     req.session.admin = true;
@@ -29,6 +30,19 @@ router.post("/auth/login", async (req, res) => {
   if (isMatch) {
     req.session.loggedIn = true;
     console.log(req.session);
+
+    // =============== email part ===============//
+    const info = await transporter.sendMail({
+      from: '"me" <myEmail@example.com',
+      to: "recipient@example.com",
+      subject: "New login detected",
+      text: `Hi ${username}, you just logged in.`,
+      html: `<b>Hi ${username}</b>, you just logged in.`,
+    });
+
+    console.log("Preview URL: %s", getPreviewUrl(info));
+    // =============== email part ends ===============//
+
     res.status(200).send({ message: "You're logged in" });
   } else {
     req.session.loggedIn = false;
