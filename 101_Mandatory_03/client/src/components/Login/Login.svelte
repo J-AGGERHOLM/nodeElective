@@ -14,7 +14,7 @@ async function handleLogin(event) {
 
     if (result.ok) {
       toastr.info(result.data.message, "success");
-      setTimeout(() => navigate("/welcome"), 2000);
+      navigate("/welcome"), 2000;
     } else {
       toastr.warning(result.data.message, "error")
     }
