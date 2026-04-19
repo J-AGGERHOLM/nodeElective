@@ -28,4 +28,5 @@ await db.exec(`
 //seeding
 if (deleteMode) {
   await db.run(`INSERT INTO users (username, password, role) VALUES ('admin01', 'secretPassword', 'Admin');`);
+  await db.run(`INSERT INTO users (username, password, role) VALUES ('user01', 'secretPassword', 'User');`);
 }

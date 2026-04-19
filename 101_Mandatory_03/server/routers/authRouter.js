@@ -9,7 +9,7 @@ function isAdmin(req, res, next) {
   if (isAdmin) {
     return next();
   }
-  res.status(403).res.send({ errorMessage: "You are not an admin!" });
+  res.status(403).send({ errorMessage: "You are not an admin!" });
 }
 
 router.post("/auth/login", async (req, res) => {
@@ -40,9 +40,13 @@ router.post("/auth/login", async (req, res) => {
   }
 });
 
+router.get("/auth/authorize", isAdmin, (req, res) => {
+  res.send({ message: "You are an admin, yay!" });
+});
+
 router.get("/auth/logout", (req, res) => {
   req.session.destroy((error) => {
-    res.status(200).send({ data: "You're logged out" });
+    res.status(200).send({ message: "You're logged out" });
   });
 });
 

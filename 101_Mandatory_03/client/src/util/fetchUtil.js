@@ -5,7 +5,8 @@ export async function fetchGet(endpoint) {
     const response = await fetch(`${BASE_URL}${endpoint}`, {
       credentials: "include",
     });
-    return await response.json();
+    const data = await response.json();
+    return { ok: response.ok, data };
   } catch (error) {
     console.log(error);
   }
