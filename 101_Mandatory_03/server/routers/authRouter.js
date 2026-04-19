@@ -1,5 +1,6 @@
 import { Router } from "express";
 import db from "../database/connection.js";
+import { comparePassword } from "../util/bcryptCompare.js";
 
 const router = Router();
 
@@ -15,13 +16,9 @@ function isAdmin(req, res, next) {
 router.post("/auth/login", async (req, res) => {
   //compare password to DB here:
   const { username, password } = req.body;
-  const result = await db.get(`SELECT role FROM users WHERE  username = ? AND password = ? `, [username, password]);
-  let isMatch = false;
-  console.log(req.body);
-
-  if (result) {
-    isMatch = true;
-  }
+  const result = await db.get(`SELECT role, password FROM users WHERE  username = ? `, [username]);
+  
+  const isMatch = await comparePassword(password, result.password)
 
   if (isMatch && result.role === "Admin") {
     req.session.admin = true;
@@ -34,7 +31,6 @@ router.post("/auth/login", async (req, res) => {
     console.log(req.session);
     res.status(200).send({ message: "You're logged in" });
   } else {
-    //if not a match, return false for toastr alert:
     req.session.loggedIn = false;
     res.status(401).send({ message: "Invalid credentials" });
   }
