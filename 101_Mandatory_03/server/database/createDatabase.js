@@ -17,22 +17,25 @@ if (deleteMode) {
 
 //DDL
 await db.exec(`
-    CREATE TABLE users(
+    CREATE TABLE IF NOT EXISTS users(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username VARCHAR(100) NOT NULL UNIQUE,
         password TEXT NOT NULL,
-        role TEXT CHECK ( role IN ("Admin", "User"))
+        role TEXT CHECK ( role IN ('Admin', 'User'))
     );
 `);
 
 //DML
 //seeding
 if (deleteMode) {
-  const hashedPassword = await hashPassword("secretPassword");
+  const hashedPassword = await hashPassword('secretPassword');
 
   //this was called parameterizing a query (?)
   //to prevent SQL injections.
-  await db.run(`INSERT INTO users (username, password, role) VALUES (?, ?, ?)`, ['admin01', hashedPassword, 'Admin']);
-  await db.run(`INSERT INTO users (username, password, role) VALUES (?, ?, ?)`, ['user01', hashedPassword, 'User']);
-  
+  await db
+    .prepare(`INSERT INTO users (username, password, role) VALUES (?, ?, ?)`)
+    .run('admin01', hashedPassword, 'Admin');
+  await db
+    .prepare(`INSERT INTO users (username, password, role) VALUES (?, ?, ?)`)
+    .run('user01', hashedPassword, 'User');
 }

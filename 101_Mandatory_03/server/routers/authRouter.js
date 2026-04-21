@@ -17,7 +17,8 @@ function isAdmin(req, res, next) {
 router.post("/auth/login", async (req, res) => {
   //compare password to DB here:
   const { username, password } = req.body;
-  const result = await db.get(`SELECT role, password FROM users WHERE  username = ? `, [username]);
+  const result = await db.prepare(`SELECT role, password FROM users WHERE  username = ? `)
+  .get(username);
 
   const isMatch = await comparePassword(password, result.password);
 

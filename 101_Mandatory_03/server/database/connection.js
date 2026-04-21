@@ -1,9 +1,5 @@
-import sqlite3 from "sqlite3";
-import { open } from "sqlite";
+import { DatabaseSync } from "node:sqlite";
 
-const connection = await open({
-  filename: "users.db",
-  driver: sqlite3.Database,
-});
+const db = new DatabaseSync("users.db");
 
-export default connection;
+export default db;
