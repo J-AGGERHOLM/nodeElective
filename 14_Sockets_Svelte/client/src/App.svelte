@@ -11,8 +11,7 @@
 
 </script>
 
-<main style:backgroundColor={$currentColor} >
-
+<main class="app" style:background-color={$currentColor}>
 {#if !$nickname}
 <Register></Register>
 {:else}
@@ -21,7 +20,7 @@
 </main>
 
 <style>
-  main {
-    min-height: 100vh;
+  .app {
+    height: 100vh;
   }
 </style>
